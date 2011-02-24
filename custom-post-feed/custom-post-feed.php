@@ -12,7 +12,7 @@ Please visit the Plugin URI for instructions on usage.
 
 
 function custom_feed() {
-$x=get_bloginfo('rss2_url');
+$x=get_bloginfo('url');
 $n=get_bloginfo('name');
 $post_types=get_post_types('','names'); 
 foreach ($post_types as $post_type ) {
@@ -24,7 +24,7 @@ else
 query_posts('post_type='.$post_type.'&post_status=publish');
 if(have_posts())
 {
-echo "<link rel=alternate type=application/rss+xml title='".$post_type." RSS Feed' href='".$x."?post_type=". $post_type."'></link>";
+echo "<link rel=alternate type=application/rss+xml title='".$post_type." RSS Feed' href='".$x."/". $post_type."/feed/'></link>";
 }
 }
 }
